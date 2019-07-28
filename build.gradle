@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'com.netty-test'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    // 使用原来本地 maven 的仓库
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile (
+            "junit:junit:4.12"
+    )
+
+    compile (
+            "io.netty:netty-all:4.1.30.Final",
+            "cglib:cglib:3.2.8",
+            'com.google.protobuf:protobuf-java:3.9.0',
+            'com.google.protobuf:protobuf-java-util:3.9.0'
+    )
+}
