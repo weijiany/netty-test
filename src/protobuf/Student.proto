@@ -1,0 +1,32 @@
+syntax = "proto2";
+
+package com.text.protobuf;
+
+option optimize_for = SPEED;
+option java_package = "netty.sixexample";
+option java_outer_classname = "MyDataInfo";
+
+message Pack {
+    required PackType packType = 1;
+
+    oneof Pack {
+        Student student = 2;
+        Number number = 3;
+    }
+}
+
+enum PackType {
+    STUDENT = 0;
+    NUMBER = 1;
+}
+
+message Student {
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
+message Number {
+    required int32 id = 1;
+    optional string value = 2;
+}

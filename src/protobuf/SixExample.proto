@@ -1,0 +1,39 @@
+/**
+ * 配合第六个 netty example
+ * 为了能够在一个端口上发送多个不同类型的消息，需要定义多个 message
+ * 在主要的 Pack 中，使用 oneof 来强制限制
+ * oneof：一个包含很多字段的消息，并且最多只能设置一个字段，则可以使用 oneof 功能强制执行此行为并节省内存。
+ */
+
+syntax = "proto2";
+
+package com.text.protobuf;
+
+option optimize_for = SPEED;
+option java_package = "netty.sixexample";
+option java_outer_classname = "MyDataInfo";
+
+message Pack {
+    required PackType packType = 1;
+
+    oneof Pack {
+        Student student = 2;
+        Number number = 3;
+    }
+}
+
+enum PackType {
+    STUDENT = 0;
+    NUMBER = 1;
+}
+
+message Student {
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
+message Number {
+    required int32 id = 1;
+    optional string value = 2;
+}
