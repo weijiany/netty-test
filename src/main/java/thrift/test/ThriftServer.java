@@ -1,4 +1,4 @@
-package netty.thrift;
+package thrift.test;
 
 import org.apache.thrift.TProcessorFactory;
 import org.apache.thrift.protocol.TCompactProtocol;

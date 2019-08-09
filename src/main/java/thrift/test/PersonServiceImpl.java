@@ -1,4 +1,4 @@
-package netty.thrift;
+package thrift.test;
 
 import org.apache.thrift.TException;
 import thrift.generated.DataException;
